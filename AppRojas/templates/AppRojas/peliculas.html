@@ -2,9 +2,26 @@
 {% load static %}
 {% block contenidoQueCambia %}
 
-    <h1 class="white"> Peliculas, revisa nuestro catalogo </h1>
-    <p class="white" > Herencia html de la plantilla padre</p>
+    {% if miFormulario.errors %}
+    <p style="color: red;" > Los datos son incorrectos, verificalos</p>
+    
+    {% endif %}
 
-    <h3 class="white">todos los generos, los mejores films aqui!!!</h3>
+
+    <form action="" method="POST"> {% csrf_token %}
+
+        <table>
+
+         {{ miFormulario.as_table  }}
+
+
+        </table>
+
+        <input type="submit" value="Enviar">
+
+
+
+    </form>
 
 {% endblock %}
+
