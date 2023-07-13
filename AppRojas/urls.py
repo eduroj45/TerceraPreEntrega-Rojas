@@ -3,8 +3,11 @@ from AppRojas import views
 
 
 urlpatterns = [
-    path('',views.inicio),
-    path('peliculas',views.peliculas),
-    path('series', views.series),
-    path('musica',views.musica),
+    path('',views.inicio,name="Inicio"),
+    path('peliculas',views.peliculas,name="Peliculas"),
+    path('series', views.series,name="Series"),
+    path('musica',views.musica,name="Musica"),
+    
+    path('busquedaMusica', views.busquedaMusica, name="BusquedaMusica"),
+    path('buscar/', views.buscar),
 ]
