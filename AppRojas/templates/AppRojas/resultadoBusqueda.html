@@ -2,21 +2,21 @@
 {% load static %}
 {% block contenidoQueCambia %}
 
-    {% if miFormulario.errors %}
-    <p style="color: red;" >Los datos son incorrectos, verificalos</p>
-    {% endif %}
+{% if miFormulario.errors %}
+<p style="color: red;">Los datos son incorrectos, verificalos</p>
+{% endif %}
 
-    <p> Buscando... {{disco}}</p>
-    {% if musica %}
-        <ul>
-            {% for i in musica %}
-                <li>{{i.artista}}</li>
-                <li>{{i.genero}}</li>
-                <li>{{i.disco}}</li>
-            {% endfor %}
+<p> Buscando... {{disco}}</p>
+{% if musicas %}
+<ul>
+    {% for i in musicas %}
+    <li>{{i.artista}}</li>
+    <li>{{i.genero}}</li>
+    <li>{{i.disco}}</li>
+    {% endfor %}
 
-        </ul>
-    {% endif %}
+</ul>
+{% endif %}
 
 {% endblock %}
 
