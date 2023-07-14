@@ -2,18 +2,57 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.db import models
 from AppRojas.models import Peliculas,Series,Musica
-from AppRojas.forms import MusicaFormulario
+from AppRojas.forms import MusicaFormulario,PeliculasFormulario,SeriesFormulario
 
 def inicio(request):
     return render(request,"AppRojas/inicio.html")
 
 
 def peliculas(request):
+      
+    
+    if request.method == 'POST':
 
-    return render(request, "AppRojas/peliculas.html")
+      miFormulario= PeliculasFormulario(request.POST)
+      print(miFormulario)
+
+      if miFormulario.is_valid:
+
+         informacion= miFormulario.cleaned_data
+         pelicula= Peliculas(nombre=informacion['nombre'],genero=informacion['genero'],año=informacion['año'])
+         pelicula.save()
+         return render(request,"AppRojas/inicio.html")
+    else:
+        
+        miFormulario=PeliculasFormulario()
+
+
+    
+    return render(request, "AppRojas/peliculas.html",{'miFormulario':miFormulario})
+
+   
 
 def series(request):
-    return render(request, "AppRojas/series.html")
+       
+    if request.method == 'POST':
+
+      miFormulario= SeriesFormulario(request.POST)
+      print(miFormulario)
+
+      if miFormulario.is_valid:
+
+         informacion= miFormulario.cleaned_data
+         serie= Series(nombre=informacion['nombre'],genero=informacion['genero'],año=informacion['año'])
+         serie.save()
+         return render(request,"AppRojas/inicio.html")
+    else:
+        
+        miFormulario=SeriesFormulario()
+
+
+    
+    return render(request, "AppRojas/series.html",{'miFormulario':miFormulario})
+
 
 def musica(request):
     
@@ -51,10 +90,12 @@ def buscar(request):
    if request.GET["disco"]:
 
       disco= request.GET['disco']
+      
       artista= Musica.objects.filter(disco__icontains=disco)
-      genero= Musica.objects.filter(disco__icontains=disco)
 
-      return render(request, 'AppRojas/inicio.html',{"artista":artista,"genero":genero,"disco":disco   })
+      
+
+      return render(request, 'AppRojas/inicio.html',{"artista":artista,"disco":disco   })
    
    else:
       
