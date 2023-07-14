@@ -4,4 +4,4 @@ una vez hecho el python manage, ingresar a la opcion /AppRojas, encontraras la s
 El formulario se encuentra en la seccion musica, completando dichos campos logra almacenarse en la db.
 Para verificar si los datos ingresados fueron guardados, volver al comienzo y seleccionar la opcion de /admin, el usuario es edu y la contraseña flow2013 .
 en la seccion musica ,encontraras el formulario creado.
-lo unico que no pude hacer funcionar es la opcion de busqueda =(
+en busquedaMusica podras buscar el disco del artista que se haya almacenado.
