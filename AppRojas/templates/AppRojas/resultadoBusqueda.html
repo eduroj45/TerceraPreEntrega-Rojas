@@ -7,9 +7,9 @@
     {% endif %}
 
     <p> Buscando... {{disco}}</p>
-    {% if musica %}
+    {% if artista %}
         <ul>
-            {% for i in musica %}
+            {% for i in artista %}
                 <li>{{i.artista}}</li>
                 <li>{{i.genero}}</li>
                 <li>{{i.disco}}</li>
@@ -19,7 +19,6 @@
     {% endif %}
 
 {% endblock %}
-
 
 
    
