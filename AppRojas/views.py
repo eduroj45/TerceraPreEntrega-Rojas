@@ -67,7 +67,7 @@ def musica(request):
          informacion= miFormulario.cleaned_data
          musica= Musica(artista=informacion['artista'],genero=informacion['genero'],disco=informacion['disco'])
          musica.save()
-         return render(request,"AppRojas/inicio.html")
+         return render(request,"AppRojas/musicaAgregada.html")
     else:
         
         miFormulario= MusicaFormulario()
