@@ -90,12 +90,9 @@ def buscar(request):
    if request.GET["disco"]:
 
       disco= request.GET['disco']
-      
-      artista= Musica.objects.filter(disco__icontains=disco)
-
-      
-
-      return render(request, 'AppRojas/inicio.html',{"artista":artista,"disco":disco   })
+      musicas = Musica.objects.filter(disco__icontains=disco)
+      if musicas:
+        return render(request, 'AppRojas/resultadoBusqueda.html',{"disco":disco,"musicas": musicas   })
    
    else:
       
